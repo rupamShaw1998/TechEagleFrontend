@@ -21,8 +21,13 @@ const Manager = () => {
     // Handle edit logic
   };
 
-  const handleDelete = (productId) => {
-    // Handle delete logic
+  const handleDelete = async (productId) => {
+    try {
+        await axios.delete(`http://localhost:5000/inventory/delete-product/${productId}`);
+        setInventory((prevInventory) => prevInventory.filter((item) => item._id !== productId));
+      } catch (error) {
+        console.log(error);
+      }
   };
 
   return (
