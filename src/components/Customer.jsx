@@ -13,9 +13,22 @@ const Customer = () => {
         console.log(error);
       }
     };
-
     getInventory();
   }, []);
+
+  const handleAddToCart = (productId) => {
+    const selectedProduct = inventory.find((item) => item._id === productId);
+
+    const isProductInCart = cart.some((item) => item._id === productId);
+
+    if (!isProductInCart) {
+      setCart((prevCart) => [...prevCart, selectedProduct]);
+      alert('Product added to cart!');
+    } else {
+      alert('Product is already in the cart!');
+    }
+  };
+
 
   return (
     <div>
@@ -27,7 +40,7 @@ const Customer = () => {
           <p>Quantity: {item.quantity}</p>
           <p>Weight: {item.weight}</p>
           <p>Price: {item.price}</p>
-          <button>Add to Cart</button>
+          <button onClick={() => handleAddToCart(item._id)}>Add to Cart</button>
         </div>
       ))}
       {/* Additional components for cart, order placement, etc. */}
