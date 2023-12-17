@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Link } from 'react-router-dom';
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -44,6 +45,11 @@ const SignUp = () => {
         onChange={(e) => setPassword(e.target.value)}
       />
       <button onClick={handleSignUp}>Sign Up</button>
+      <br />
+      <br />
+      <Link to={"/login"}>
+        <button>Log In?</button>
+      </Link>
     </div>
   );
 };

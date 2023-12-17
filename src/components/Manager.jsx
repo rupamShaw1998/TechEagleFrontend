@@ -18,7 +18,15 @@ const Manager = () => {
   }, []);
 
   const handleEdit = (productId) => {
-    // Handle edit logic
+    alert("Redirecting to edit page");
+  };
+
+  const handleAddNewItem = () => {
+    alert('adding new item');
+  };
+
+  const handleViewOrders = () => {
+    alert("adding new items");
   };
 
   const handleDelete = async (productId) => {
@@ -44,7 +52,8 @@ const Manager = () => {
           <button onClick={() => handleDelete(item._id)}>Delete</button>
         </div>
       ))}
-      {/* Additional components for adding new items, viewing orders, etc. */}
+      <button onClick={handleAddNewItem}>Add New Item</button>
+      <button onClick={handleViewOrders}>View Orders</button>
     </div>
   );
 };

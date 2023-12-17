@@ -29,6 +29,9 @@ const Customer = () => {
     }
   };
 
+  const handleViewOrders = () => {
+    alert("adding new items");
+  };
 
   return (
     <div>
@@ -43,7 +46,8 @@ const Customer = () => {
           <button onClick={() => handleAddToCart(item._id)}>Add to Cart</button>
         </div>
       ))}
-      {/* Additional components for cart, order placement, etc. */}
+      <h3>Shopping Cart</h3>
+      <button onClick={handleViewOrders}>View Orders</button>
     </div>
   );
 };
